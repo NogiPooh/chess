@@ -1,5 +1,4 @@
 ﻿# include <Siv3D.hpp> // OpenSiv3D v0.6.8
-#include <iostream>
 
 class PieceImages {
 	using TextureT = std::unique_ptr<Texture>;
@@ -34,35 +33,37 @@ public:
 
 enum class Piece
 {
-	NONE,        //  0
-	WHITEKING,   //  1
-	WHITEQUEEN,  //  2
-	WHITEROOK,   //  3
-	WHITEBISHOP, //  4
-	WHITEKNIGHT, //  5
-	WHITEPAWN,   //  6
-	BLACKKING,   //  7
-	BLACKQUEEN,  //  8
-	BLACKROOK,   //  9
-	BLACKBISHOP, // 10
-	BLACKKNIGHT, // 11
-	BLACKPAWN,   // 12
+	NONE,          //  0
+	WHITEKING,     //  1
+	WHITEQUEEN,    //  2
+	WHITEBISHOP,   //  3
+	WHITEKNIGHT,   //  4
+	WHITEROOK,     //  5
+	WHITEPAWN,     //  6
+	BLACKKING,     //  7
+	BLACKQUEEN,    //  8
+	BLACKBISHOP,   //  9
+	BLACKKNIGHT,   // 10
+	BLACKROOK,     // 11
+	BLACKPAWN,     // 12
 };
+
 void Main()
 {
 	Scene::SetBackground(Color{ 200, 200, 200 });
 	Window::Resize(800, 600);
 	constexpr int Tilesize = 50;
 	int i, j;
-	constexpr int boardstart[8][8] = { {9, 11, 10, 8, 7, 10, 11, 9},
-						    {12, 12, 12, 12, 12, 12, 12, 12},
-						    {0, 0, 0, 0, 0, 0, 0, 0},
-						    {0, 0, 0, 0, 0, 0, 0, 0},
-						    {0, 0, 0, 0, 0, 0, 0, 0},
-						    {0, 0, 0, 0, 0, 0, 0, 0},
-						    {6, 6, 6, 6, 6, 6, 6, 6},
-						    {3, 5, 4, 2, 1, 4, 5, 3},
+	constexpr int boardstart[8][8] = { {11, 10, 9, 8, 7, 9, 10, 11},
+						               {12, 12, 12, 12, 12, 12, 12, 12},
+						               {0, 0, 0, 0, 0, 0, 0, 0},
+						               {0, 0, 0, 0, 0, 0, 0, 0},
+						               {0, 0, 0, 0, 0, 0, 0, 0},
+						               {0, 0, 0, 0, 0, 0, 0, 0},
+						               {6, 6, 6, 6, 6, 6, 6, 6},
+					   	               {5, 4, 3, 2, 1, 3, 4, 5},
 	};
+
 	Piece board[8][8];
 	for (i = 0; i < 8; i++) {
 		for (j = 0; j < 8; j++) {
@@ -91,14 +92,14 @@ void Main()
 				case Piece::WHITEQUEEN:
 					image.WHITEQUEEN.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
-				case Piece::WHITEROOK:
-					image.WHITEROOK.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
-					break;
 				case Piece::WHITEBISHOP:
 					image.WHITEBISHOP.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
 				case Piece::WHITEKNIGHT:
 					image.WHITEKNIGHT.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
+					break;
+				case Piece::WHITEROOK:
+					image.WHITEROOK.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
 				case Piece::WHITEPAWN:
 					image.WHITEPAWN.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
@@ -109,14 +110,14 @@ void Main()
 				case Piece::BLACKQUEEN:
 					image.BLACKQUEEN.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
-				case Piece::BLACKROOK:
-					image.BLACKROOK.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
-					break;
 				case Piece::BLACKBISHOP:
 					image.BLACKBISHOP.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
 				case Piece::BLACKKNIGHT:
 					image.BLACKKNIGHT.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
+					break;
+				case Piece::BLACKROOK:
+					image.BLACKROOK.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
 					break;
 				case Piece::BLACKPAWN:
 					image.BLACKPAWN.get()->drawAt(200 + Tilesize * i + Tilesize / 2, 100 + Tilesize * j + Tilesize / 2);
